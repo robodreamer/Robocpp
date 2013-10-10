@@ -1,0 +1,4 @@
+Date: Oct 3rd, 2013
+This is a c++ library of kinematic and dynamic computations for humanoid robots. Currently, Hubo II+ and DRC-Hubo robots are supported. 
+
+
