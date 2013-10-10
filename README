@@ -3,6 +3,8 @@ This is a c++ library of kinematic and dynamic computations for humanoid robots.
 
 Currently, following features are supported:
 
+$sudo ./Robocpp
+
 --------------------- Robocpp --------------------
 |  Functions written for ladder climbing event   |
 |                                                |
