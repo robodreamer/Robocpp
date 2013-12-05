@@ -1631,7 +1631,6 @@ mat joint_limit_check(DRCHubo& self, mat q_data){
     return q_data;
 }
 
-
 // Initializes robot class
 void robot_init (DRCHubo& robot){
     get_frame_list(robot);

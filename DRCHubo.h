@@ -41,6 +41,7 @@ Date: August, 2013
 #define EXCEPT_FINGERS 30
 #define FINGER_CLOSE 1
 #define FINGER_OPEN -1
+#define FINGER_NEUTRAL 0
 
 // Define constants for joint names
 #define JA_RHY 0
@@ -211,7 +212,7 @@ void robot_init (DRCHubo& robot);
 vec ReadAchJoint(DRCHubo& robot);
 
 /// Save to Hubo-Ach format
-void motion2ach(DRCHubo& self, mat qdata, string file_name, int send2ach, int mode, bool compliance = false, int NJoints = BODY_JOINTS, int finger_state = FINGER_CLOSE);
+void motion2ach(DRCHubo& self, mat qdata, string file_name, int send2ach, int mode, bool compliance = false, int NJoints = BODY_JOINTS, int finger_state = FINGER_NEUTRAL);
 
 // convert the joint angle of the model to Hubo with offset
 mat Model2Robot(DRCHubo& self, mat q_data);

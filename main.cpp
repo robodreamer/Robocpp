@@ -9,7 +9,7 @@
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * <program name> is distributed in the hope that it will be useful,
+ * <Robocpp> is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -293,17 +293,22 @@ int main(int argc, char *argv[])
                 }
             }
             else if (argv[1] == string("movefile")){
+
                 // map second argument to the joint index
                 INDEX_JOINT = map_joint_str2num(argv[2]);
+
                 // if valid joint name
-                if(INDEX_JOINT > -100){
+                if(INDEX_JOINT > -100 && INDEX_JOINT < 40){
                     JOINT_ANGLE = FindJointAngFile(argv[3],str2int(argv[4]),INDEX_JOINT);
                     // display joint angle
                     cout << "Joint Angle: " << JOINT_ANGLE << endl;
                     select = 102;
                 }
+                // ALL Joints
                 else if(INDEX_JOINT == 100){
+
                     JOINT_DATA = FindJointDataFile(argv[3],str2int(argv[4]));
+
                     for (int i=0; i<40; i++){
                         cout << i << ": " << JOINT_DATA(i) << endl;
                     }
@@ -2339,7 +2344,7 @@ int main(int argc, char *argv[])
             qdata1 = spline_interp_mat(qdata, speed_motion);
 
             // send the motion to Hubo-Ach
-            motion2ach(robot, qdata1, "motion_test.txt", 1, MODE, compliance);
+            motion2ach(robot, qdata1, "motion_test.txt", 1, MODE, compliance, ALL_JOINTS, FINGER_NEUTRAL);
 
             cout << endl << "Do you want to continue? 1: Yes, 0: No: ";
             cin >> Loop;
@@ -2480,7 +2485,7 @@ int main(int argc, char *argv[])
         data2ach(achdata1, "motion_test.txt", 1, compliance, MODE);
     }
 
-    // move one joint from current position to the desired position in the motion file
+    // move all joints from current position to the desired position in the motion file
     // 10-10-13
     else if (select == 104){
 
